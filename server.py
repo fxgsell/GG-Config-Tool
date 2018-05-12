@@ -1,5 +1,5 @@
 import os
-
+import sys
 from flask import Flask, request
 from werkzeug.utils import secure_filename
 
@@ -14,15 +14,20 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 if not os.path.exists(app.config['UPLOAD_FOLDER']):
     os.makedirs(app.config['UPLOAD_FOLDER'])
 
+def shutdown_server():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
+
 @app.route('/', methods=['GET'])
 def root():
     return app.send_static_file('index.html')
 
 @app.route('/finished', methods=['GET'])
-def close():
-    if True:
-        raise RuntimeError("Server going down")
-    return app.send_static_file('index.html')
+def shutdown():
+    shutdown_server()
+    return 'Restarting...'
 
 @app.route('/configure-wifi', methods=['POST'])
 def handle_wifi():
@@ -45,7 +50,7 @@ def handle_certificates():
     print(request.files)
     if 'certificates' not in request.files:
         print('No certificates')
-        return redirect(request.url)
+        return app.send_static_file('index.html')
     file = request.files['certificates']
     # if user does not select file, browser also
     # submit a empty part without filename
@@ -59,8 +64,5 @@ def handle_certificates():
     return app.send_static_file('index.html')
 
 if __name__ == "__main__":
-    try:
-        app.run(host= '0.0.0.0', port=5000)
-    except RuntimeError, msg:
-        if str(msg) == "Server going down":
-            pass # or whatever you want to do when the server goes down
+    app.run(host= '0.0.0.0', port=5000)
+    
