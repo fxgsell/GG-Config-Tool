@@ -29,9 +29,7 @@ sudo ./check_ggc_dependencies
 
 # MXNet 
 curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/mxnet-1.2.0-py2.py3-none-any.whl
-sudo su
-    pip install -e ./mxnet-1.2.0-py2.py3-none-any.whl
-    exit
+sudo su -c "pip install -e ./mxnet-1.2.0-py2.py3-none-any.whl"
 
 # Greengrass service
 
