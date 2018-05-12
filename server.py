@@ -3,8 +3,6 @@ import sys
 from flask import Flask, request
 from werkzeug.utils import secure_filename
 
-ALLOWED_EXTENSIONS = set(['tar.gz'])
-
 app = Flask(__name__) 
 app._static_folder='.'
 
@@ -41,26 +39,19 @@ def handle_wifi():
         
     return app.send_static_file('index.html')
 
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
-
 @app.route('/configure-certificates', methods=['POST'])
 def handle_certificates():
-    print(request.files)
     if 'certificates' not in request.files:
         print('No certificates')
         return app.send_static_file('index.html')
     file = request.files['certificates']
-    # if user does not select file, browser also
-    # submit a empty part without filename
     if file.filename == '':
         print('No selected file')
         return app.send_static_file('index.html')
-    if file and allowed_file(file.filename):
-        #filename = secure_filename(file.filename)
-        filename = 'certificates.zip'
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename ))
+
+    if file and file.filename.endswith('.tar.gz'):
+        print('Saving to uploads/certificates.tar.gz')
+        file.save('uploads/certificates.tar.gz')
     return app.send_static_file('index.html')
 
 if __name__ == "__main__":
