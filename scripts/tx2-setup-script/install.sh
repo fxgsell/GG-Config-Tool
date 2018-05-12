@@ -8,6 +8,7 @@
 
 # Prerequisits 
 sudo apt update
+sudo apt install -y --allow-unauthenticated  libcudnn7 libcudnn7-dev
 sudo apt dist-upgrade -y
 sudo apt install -y htop screen mplayer curl
 sudo apt remove -y lightdm*
