@@ -5,8 +5,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-mkdir -p /opt/gg-config-ui/
 rm -rf /opt/gg-config-ui/
+mkdir -p /opt/gg-config-ui/
 cp -r ./* /opt/gg-config-ui/
 
 echo "[Unit]
