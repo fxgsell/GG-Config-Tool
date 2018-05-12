@@ -60,3 +60,6 @@ cd buildOpenCVTX2/
 cd $HOME/opencv/build
 make
 sudo make install
+
+# Done
+sudo reboot
