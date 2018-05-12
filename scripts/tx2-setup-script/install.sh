@@ -53,7 +53,7 @@ WantedBy=multi-user.target" | sudo tee /etc/systemd/system/greengrass.service
 sudo systemctl enable greengrass
 
 # OpenCV
-sudo apt remove -y libopencv || exit
+sudo apt remove -y libopencv
 git clone https://github.com/jetsonhacks/buildOpenCVTX2.git || exit
 cd buildOpenCVTX2/
 ./buildOpenCV.sh
