@@ -23,14 +23,14 @@ sudo systemctl enable networking
 sudo adduser --system ggc_user
 sudo addgroup --system ggc_group
 
-git clone https://github.com/aws-samples/aws-greengrass-samples.git
+git clone https://github.com/aws-samples/aws-greengrass-samples.git || exit
 cd aws-greengrass-samples
 cd greengrass-dependency-checker-GGCv1.5.0
-sudo ./check_ggc_dependencies
+sudo ./check_ggc_dependencies || exit
 
 # MXNet 
-curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/mxnet-1.2.0-py2.py3-none-any.whl
-sudo su -c "pip install -e ./mxnet-1.2.0-py2.py3-none-any.whl"
+curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/mxnet-1.2.0-py2.py3-none-any.whl || exit
+sudo su -c "pip install -e ./mxnet-1.2.0-py2.py3-none-any.whl" || exit
 
 # Greengrass service
 
@@ -52,8 +52,8 @@ WantedBy=multi-user.target" | sudo tee /etc/systemd/system/greengrass.service
 sudo systemctl enable greengrass
 
 # OpenCV
-sudo apt remove -y libopencv 
-git clone https://github.com/jetsonhacks/buildOpenCVTX2.git
+sudo apt remove -y libopencv || exit
+git clone https://github.com/jetsonhacks/buildOpenCVTX2.git || exit
 cd buildOpenCVTX2/
 ./buildOpenCV.sh
 cd $HOME/opencv/build
