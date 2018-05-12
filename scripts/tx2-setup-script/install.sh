@@ -10,9 +10,11 @@
 sudo apt update
 sudo apt install -y --allow-unauthenticated  libcudnn7 libcudnn7-dev
 sudo apt dist-upgrade -y
-sudo apt install -y htop screen mplayer curl
+sudo apt install -y htop screen mplayer curl python-pip
 sudo apt remove -y lightdm*
 sudo apt remove -y network-manager* 
+
+sudo -H pip install --upgrade pip
 
 sudo echo '' | sudo tee -a /etc/network/interfaces
 sudo echo 'auto eth0' | sudo tee -a /etc/network/interfaces
@@ -30,10 +32,9 @@ sudo ./check_ggc_dependencies || exit
 
 # MXNet 
 curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/mxnet-1.2.0-py2.py3-none-any.whl || exit
-sudo su -c "pip install -e ./mxnet-1.2.0-py2.py3-none-any.whl" || exit
+sudo -H pip install -e ./mxnet-1.2.0-py2.py3-none-any.whl
 
 # Greengrass service
-
 echo "[Unit]
 Description=greengrass daemon
 After=network.target
