@@ -9,7 +9,7 @@
 # Prerequisits 
 sudo apt update
 sudo apt dist-upgrade -y
-sudo apt install -y htop screen mplayer
+sudo apt install -y htop screen mplayer curl
 sudo apt remove -y lightdm*
 sudo apt remove -y network-manager* 
 
@@ -28,7 +28,7 @@ cd greengrass-dependency-checker-GGCv1.5.0
 sudo ./check_ggc_dependencies
 
 # MXNet 
-wget https://s3.amazonaws.com/fx-greengrass-models/binaries/mxnet-1.2.0-py2.py3-none-any.whl
+curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/mxnet-1.2.0-py2.py3-none-any.whl
 sudo su
     pip install -e ./mxnet-1.2.0-py2.py3-none-any.whl
     exit
