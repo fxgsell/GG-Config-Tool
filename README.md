@@ -1,28 +1,18 @@
 # Jetson Configuration Utility
 
-## Carrier and Enclosure Requriements
+## Installation
 
-- 1 button to trigger configuration
-- Camera emplacement at best, USB at worst
+The agent stays running all the time and waits for the Vol+ button to be double-pressed.
 
-## Watcher Service
+When the button is pressed it starts a web-ui with options to configure the Greengrass certificates and Wifi. 
 
-- Detect 5 seconds button press
-- Trigger Congiuration tool
+    git clone https://github.com/zukoo/GG-Config-Tool.git
+    cd GG-Config-Tool
+    sudo ./install.sh
 
-## Configuration Tool
+## Optional
 
-- Set device to wifi AP:
-  1. Get device ID
-  1. Configure Wifi as access-point with name: TX2-DEVID
-  1. Start DHCP server lisen on AP
-- Configuration
-  1. Set a new wifi:
-  - network
-  - password
-  1. Reset Greengrass:
-  - Stop
-  - rm -r /greengrass
-  - extract greengrass
-  - extract certificates
-  - Start
+Install dependencies to do ML @Edge like OpenCV and MXNet.
+
+    cd scripts/tx2-setup-script/
+    ./install.sh
