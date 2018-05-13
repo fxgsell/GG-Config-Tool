@@ -38,6 +38,9 @@ sudo ./check_ggc_dependencies || exit
 curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/mxnet-1.2.0-py2.py3-none-any.whl || exit
 sudo -H pip install ./mxnet-1.2.0-py2.py3-none-any.whl
 
+# DLib
+sudo -H pip install dlib
+
 # Greengrass service
 curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/greengrass-linux-aarch64-1.5.0.tar.gz || exit
 sudo tar -xzvf greengrass-linux-aarch64-1.5.0.tar.gz -C /
