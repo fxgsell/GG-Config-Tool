@@ -4,15 +4,14 @@
 
 The agent stays running all the time and waits for the Vol+ button to be double-pressed.
 
-When the button is pressed it starts a web-ui with options to configure the Greengrass certificates and Wifi. 
+When the button is pressed it starts a web-ui with options to configure the Greengrass certificates and Wifi.
 
     git clone https://github.com/zukoo/GG-Config-Tool.git
     cd GG-Config-Tool
     sudo ./install.sh
 
-## Optional
+## Optionaly
 
-Install dependencies to do ML @Edge like OpenCV and MXNet.
+You can install the agent without the dependencies for ML @Edge like OpenCV and MXNet.
 
-    cd scripts/tx2-setup-script/
-    ./install.sh
+    sudo ./install.sh --no-dependencies

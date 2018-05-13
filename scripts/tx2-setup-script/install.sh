@@ -6,15 +6,19 @@
 # Pre-build OpenCV
 # Copy in S3 all external links
 
-# Prerequisits 
+# Prerequisits
 sudo apt update
 sudo apt install -y --allow-unauthenticated  libcudnn7 libcudnn7-dev
 sudo apt dist-upgrade -y
 sudo apt install -y htop screen mplayer curl python-pip
+sudo apt install -y libopenblas-dev libopenblas-dev
 sudo apt remove -y lightdm*
 sudo apt remove -y network-manager* 
 
 sudo -H pip install --upgrade pip
+
+mkdir -p /tmp/gg-config-installer
+cd /tmp/gg-config-installer
 
 sudo echo '' | sudo tee -a /etc/network/interfaces
 sudo echo 'auto eth0' | sudo tee -a /etc/network/interfaces
@@ -32,7 +36,7 @@ sudo ./check_ggc_dependencies || exit
 
 # MXNet 
 curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/mxnet-1.2.0-py2.py3-none-any.whl || exit
-sudo -H pip install -e ./mxnet-1.2.0-py2.py3-none-any.whl
+sudo -H pip install ./mxnet-1.2.0-py2.py3-none-any.whl
 
 # Greengrass service
 curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/greengrass-linux-aarch64-1.5.0.tar.gz || exit
@@ -64,5 +68,4 @@ cd $HOME/opencv/build
 make
 sudo make install
 
-# Done
-sudo reboot
+sudo rm -rf /tmp/gg-config-installer
