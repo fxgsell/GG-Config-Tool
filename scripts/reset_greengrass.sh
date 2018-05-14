@@ -2,9 +2,9 @@
 
 BINARIES=/opt/gg-config-ui/binaries/
 
-[ -s uploads/configuration.tar.gz ] || exit
+[ -s uploads/certificates.tar.gz ] || exit
 
-cp uploads/configuration.tar.gz /tmp/configuration.tar.gz
+cp uploads/certificates.tar.gz /tmp/certificates.tar.gz
 
 # Validate certificates here - TODO
 #
