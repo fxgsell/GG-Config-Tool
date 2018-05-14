@@ -2,6 +2,8 @@
 
 BINARIES=/opt/gg-config-ui/binaries/
 
+[ -s uploads/configuration.tar.gz ] || exit
+
 cp uploads/configuration.tar.gz /tmp/configuration.tar.gz
 
 # Validate certificates here - TODO
@@ -10,6 +12,7 @@ cp uploads/configuration.tar.gz /tmp/configuration.tar.gz
 # 2. Size range is appropriate
 # 3. All the files are inside
 # 4. Individual size is appropriate
+
 
 systemctl stop greengrass
 

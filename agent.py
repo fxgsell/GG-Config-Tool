@@ -23,7 +23,7 @@ def reset():
     shutil.rmtree('./uploads')
     os.mkdir('./uploads')
 
-    os.system("python server.py")
+    os.system("python server.py", ignore_errors=True)
 
     if os.path.isfile('./uploads/certificates.tar.gz'):
       os.system("bash scripts/reset_greengrass.sh")
