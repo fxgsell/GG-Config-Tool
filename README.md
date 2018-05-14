@@ -18,8 +18,16 @@ When the button is pressed it starts a web-ui with options to configure the Gree
     cd GG-Config-Tool
     sudo ./install.sh
 
-## Optionally
+### Optionally
 
-You can install the agent without the dependencies for ML @Edge like OpenCV and MXNet.
+You can choose to install the agent without the dependencies for ML @Edge like OpenCV and MXNet.
 
     sudo ./install.sh --no-dependencies
+
+## Post-Install
+
+You can now configure the device from the webUI, just double click on the button Vol+ and connect to it's IP via a web browser. *In future versions of the tool this should create a Wifi Network to let you configure the device network configuration*
+
+![Jetson configuration][ui]
+
+[ui]: ./static/images/ui.png "Jetson configuration UI"
