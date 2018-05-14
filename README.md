@@ -1,5 +1,13 @@
 # Jetson Configuration Utility
 
+## Prerequists
+
+Install the device with JetPack 3.2 and log-in as *nvidia*. Make sure to uncheck OpenCV from the configuration.
+
+![Jetson configuration][screenshot]
+
+[screenshot]: ./static/images/jetson_config.png "Jetson configuration"
+
 ## Installation
 
 The agent stays running all the time and waits for the Vol+ button to be double-pressed.
