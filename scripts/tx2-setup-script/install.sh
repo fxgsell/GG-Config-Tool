@@ -10,11 +10,12 @@
 sudo apt update
 sudo apt install -y --allow-unauthenticated  libcudnn7 libcudnn7-dev
 sudo apt dist-upgrade -y
-sudo apt install -y htop screen mplayer curl python-pip
-sudo apt install -y libopenblas-dev libopenblas-dev
-sudo apt remove -y lightdm*
-sudo apt remove -y network-manager* 
+sudo apt install -y htop screen mplayer curl libopenblas-dev libopenblas-dev
+sudo apt remove -y lightdm* network-manager* 
 
+if ! type "pip" > /dev/null; then
+  apt install python-pip
+fi
 sudo -H pip install --upgrade pip
 
 mkdir -p /tmp/gg-config-installer
