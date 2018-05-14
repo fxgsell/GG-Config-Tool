@@ -14,19 +14,19 @@
         <div class="container" >
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title">Wifi Configuration</h3>
+              <h3 class="panel-title">Wifi Configuration (Disabled)</h3>
             </div>
             <div class="panel-body">
                 <form  action="/configure-wifi" method="post">
                     <div class="form-group">
                         <label for="networkName">Wireless Network SSID</label>
-                        <input name="networkName" type="text" class="form-control" id="networkName" placeHolder="Wireless Network SSID">
+                        <input disabled name="networkName" type="text" class="form-control" id="networkName" placeHolder="Wireless Network SSID">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
-                        <input name="networkPassword" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <input disabled name="networkPassword" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button disabled type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
           </div>
