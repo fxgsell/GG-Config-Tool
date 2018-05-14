@@ -26,7 +26,13 @@ You can choose to install the agent without the dependencies for ML @Edge like O
 
 ## Post-Install
 
-You can now configure the device from the webUI, just double click on the button Vol+ and connect to it's IP via a web browser. *In future versions of the tool this should create a Wifi Network to let you configure the device network configuration*
+You can now configure the device from the webUI, just double click on the button Vol+ and connect to it's IP via a web browser. 
+
+![Jetson Buttons][buttons]
+
+[buttons]: ./static/images/jetson_buttons.png "Jetson Buttons"
+
+*In future versions of the tool this should create a Wifi Network to let you configure the device network configuration without knowing the device's IP address.*
 
 ![Jetson configuration][ui]
 
