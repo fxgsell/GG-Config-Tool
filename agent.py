@@ -20,10 +20,10 @@ def reset():
   if diff_up >= 4: # 2 press
     #os.system("scripts/setup_wifi_ap.py")
 
-    shutil.rmtree('./uploads')
+    shutil.rmtree('./uploads', ignore_errors=True)
     os.mkdir('./uploads')
 
-    os.system("python server.py", ignore_errors=True)
+    os.system("python server.py")
 
     if os.path.isfile('./uploads/certificates.tar.gz'):
       os.system("bash scripts/reset_greengrass.sh")
