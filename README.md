@@ -2,7 +2,7 @@
 
 ## Prerequists
 
-Install the device with JetPack 3.2 and log-in as *nvidia*. Make sure to uncheck OpenCV from the configuration.
+Install the device with JetPack 3.2 and log-in as **nvidia**. Make sure to uncheck OpenCV from the configuration.
 
 ![Jetson configuration][screenshot]
 
@@ -26,7 +26,7 @@ You can choose to install the agent without the dependencies for ML @Edge like O
 
 ## Post-Install
 
-You can now configure the device from the webUI, just double click on the button Vol+ and connect to it's IP via a web browser. 
+You can now configure the device from the webUI, just double click on the button Vol+ and connect to it's IP via a web browser. You can then upload your AWS Greengrass certificates, don't forget to hit **Finished** to apply the changes when you're done.
 
 ![Jetson Buttons][buttons]
 
