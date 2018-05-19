@@ -1,6 +1,6 @@
 # Jetson Configuration Utility
 
-## Prerequists
+## Prerequisites
 
 Install the device with JetPack 3.2 and log-in as **nvidia**. Make sure to uncheck OpenCV from the configuration.
 
