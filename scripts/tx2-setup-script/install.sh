@@ -40,7 +40,7 @@ curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/mxnet-1.2.0-py2.p
 sudo -H pip install ./mxnet-1.2.0-py2.py3-none-any.whl
 
 # Python modules
-sudo -H pip install dlib pillow click face_recognition
+sudo -H pip install dlib pillow click face_recognition imutils
 
 # Greengrass service
 curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/greengrass-linux-aarch64-1.5.0.tar.gz || exit
