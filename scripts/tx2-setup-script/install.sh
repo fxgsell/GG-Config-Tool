@@ -11,7 +11,6 @@ sudo apt update
 sudo apt install -y --allow-unauthenticated  libcudnn7 libcudnn7-dev
 sudo apt dist-upgrade -y
 sudo apt install -y htop screen mplayer curl libopenblas-dev libopenblas-dev
-sudo apt remove -y lightdm* network-manager* 
 
 if ! type "pip" > /dev/null; then
   apt install python-pip
@@ -20,12 +19,6 @@ sudo -H pip install --upgrade pip
 
 mkdir -p /tmp/gg-config-installer
 cd /tmp/gg-config-installer
-
-sudo echo '' | sudo tee -a /etc/network/interfaces
-sudo echo 'auto eth0' | sudo tee -a /etc/network/interfaces
-sudo echo 'iface eth0 inet dhcp' | sudo tee -a /etc/network/interfaces
-
-sudo systemctl enable networking
 
 sudo adduser --system ggc_user
 sudo addgroup --system ggc_group
@@ -65,7 +58,7 @@ sudo systemctl enable greengrass
 
 # OpenCV
 sudo apt remove -y libopencv
-git clone https://github.com/jetsonhacks/buildOpenCVTX2.git || exit
+git clone https://github.com/zukoo/buildOpenCVTX2.git || exit
 cd buildOpenCVTX2/
 ./buildOpenCV.sh
 cd $HOME/opencv/build
