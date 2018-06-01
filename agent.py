@@ -33,7 +33,7 @@ def reset():
 
     if os.path.isfile('./uploads/certificates.tar.gz'):
       os.system("bash scripts/reset_greengrass.sh")
-      
+
     #os.system("scripts/reset_wifi.py")
   diff_up = 0
 
