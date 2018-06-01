@@ -16,6 +16,9 @@ sudo apt dist-upgrade -y
 sudo apt install -y htop screen mplayer curl libopenblas-dev libopenblas-dev
 sudo apt install -y python-pip cmake
 
+# Python modules
+sudo -H pip install dlib pillow click face_recognition imutils
+
 #if ! type "pip" > /dev/null; then
 #  sudo apt install python-pip
 #fi
@@ -39,9 +42,6 @@ cd $WORK
 rm -f mxnet-1.2.0-py2.py3-none-any.whl
 curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/mxnet-1.2.0-py2.py3-none-any.whl || exit
 sudo -H pip install ./mxnet-1.2.0-py2.py3-none-any.whl
-
-# Python modules
-sudo -H pip install dlib pillow click face_recognition imutils
 
 # Greengrass service
 rm -rf greengrass-linux-aarch64-1.5.0.tar.gz
