@@ -14,7 +14,7 @@ sudo apt update
 sudo apt install -y --allow-unauthenticated  libcudnn7 libcudnn7-dev
 sudo apt dist-upgrade -y
 sudo apt install -y htop screen mplayer curl libopenblas-dev libopenblas-dev
-sudo apt install -y python-pip cmake
+sudo apt install -y python-pip cmake libjpeg-dev
 
 # Python modules
 sudo -H pip install dlib pillow click face_recognition imutils
