@@ -50,13 +50,18 @@ User=root
 PIDFile=/var/run/gg-config-ui.pid
 
 [Install]
-WantedBy=multi-user.target" | sudo tee /etc/systemd/system/gg-config-ui.service
+WantedBy=multi-user.target" | tee /etc/systemd/system/gg-config-ui.service
 
-sudo systemctl enable gg-config-ui
+systemctl enable gg-config-ui
 
 cd /opt/gg-config-ui/binaries/
 
 curl -O https://s3.amazonaws.com/fx-greengrass-models/binaries/greengrass-linux-aarch64-1.5.0.tar.gz || exit
 curl -o root.ca.pem http://www.symantec.com/content/en/us/enterprise/verisign/roots/VeriSign-Class%203-Public-Primary-Certification-Authority-G5.pem || exit
 
-sudo systemctl restart gg-config-ui
+systemctl restart gg-config-ui
+
+CRON='@reboot python /opt/gg-config-ui/reboot.sh'
+
+grep -q -F "$CRON" /etc/crontab || echo "$CRON" >> /etc/crontab
+
