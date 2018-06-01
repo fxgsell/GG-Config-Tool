@@ -4,7 +4,6 @@
 
 #TODO: 
 # Pre-build OpenCV
-# Copy in S3 all external links
 
 INSTALL_DIR=`pwd`
 
@@ -60,14 +59,11 @@ WantedBy=multi-user.target" | sudo tee /etc/systemd/system/greengrass.service
 sudo systemctl enable greengrass
 
 # OpenCV
-sudo apt remove -y libopencv
-
-git clone https://github.com/zukoo/buildOpenCVTX2.git || exit
 sudo patch -d /usr/local/cuda/include/ < $INSTALL_DIR/cuda_gl_interop.h.patch
-
 (cd /usr/lib/aarch64-linux-gnu/; sudo ln -sf tegra/libGL.so libGL.so)
 
-cd $WORK/buildOpenCVTX2/
+sudo apt remove -y libopencv
+git clone https://github.com/zukoo/buildOpenCVTX2.git || exit
 ./buildOpenCV.sh
 
 cd $HOME/opencv/build
