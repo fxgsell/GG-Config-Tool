@@ -59,7 +59,7 @@ WantedBy=multi-user.target" | sudo tee /etc/systemd/system/greengrass.service
 sudo systemctl enable greengrass
 
 # OpenCV
-sudo patch -d /usr/local/cuda/include/ < $INSTALL_DIR/cuda_gl_interop.h.patch
+sudo patch -N -d /usr/local/cuda/include/ < $INSTALL_DIR/cuda_gl_interop.h.patch
 (cd /usr/lib/aarch64-linux-gnu/; sudo ln -sf tegra/libGL.so libGL.so)
 
 sudo apt remove -y libopencv
@@ -71,3 +71,5 @@ make
 sudo make install
 
 sudo rm -rf /tmp/gg-config-installer
+
+sudo systemctl restart greengrass
