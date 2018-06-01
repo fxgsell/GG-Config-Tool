@@ -14,7 +14,7 @@ sudo apt update
 sudo apt install -y --allow-unauthenticated  libcudnn7 libcudnn7-dev
 sudo apt dist-upgrade -y
 sudo apt install -y htop screen mplayer curl libopenblas-dev libopenblas-dev
-sudo apt install -y python-pip
+sudo apt install -y python-pip cmake
 
 #if ! type "pip" > /dev/null; then
 #  sudo apt install python-pip
