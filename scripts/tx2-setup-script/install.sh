@@ -9,7 +9,7 @@
 INSTALL_DIR=`pwd`
 
 # Prerequisits
-sudo apt-key add /var/cuda-repo-9-0-local/7.pub
+sudo apt-key add /var/cuda-repo-9-0-local/7fa2af80.pub
 sudo apt update
 sudo apt install -y --allow-unauthenticated  libcudnn7 libcudnn7-dev
 sudo apt dist-upgrade -y
