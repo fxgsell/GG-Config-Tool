@@ -64,8 +64,8 @@ sudo patch -d /usr/local/cuda/include/ < $INSTALL_DIR/cuda_gl_interop.h.patch
 
 sudo apt remove -y libopencv
 git clone https://github.com/zukoo/buildOpenCVTX2.git || exit
+cd buildOpenCVTX2
 ./buildOpenCV.sh
-
 cd $HOME/opencv/build
 make
 sudo make install
