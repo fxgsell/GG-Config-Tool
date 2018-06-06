@@ -25,7 +25,8 @@ fi
 if [ $DEPENDENCIES -ne 1 ]; then
     if ! grep -Fxq "timestamp_timeout" /etc/sudoers
     then
-        echo "\nDefaults timestamp_timeout=-1" >> /etc/sudoers
+        echo "" >> /etc/sudoers
+        echo "Defaults timestamp_timeout=-1" >> /etc/sudoers
     fi
   echo "Intalling dependencies"
   cd scripts/tx2-setup-script/
