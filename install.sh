@@ -66,7 +66,7 @@ curl -o root.ca.pem http://www.symantec.com/content/en/us/enterprise/verisign/ro
 
 systemctl restart gg-config-ui
 
-CRON='@reboot python /opt/gg-config-ui/reboot.sh'
+CRON='@reboot cd /opt/gg-config-ui/ && python ./reboot.sh'
 
 grep -q -F "$CRON" /etc/crontab || echo "$CRON" >> /etc/crontab
 

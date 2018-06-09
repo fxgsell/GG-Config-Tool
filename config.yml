@@ -1,0 +1,6 @@
+# Configuration for @reboot
+
+# This url will receive and HTTP Post at each boot of the device
+# with all the device's ip addresses. 
+# Update with your own endpoint
+url : 'https://jrn5o5nmj8.execute-api.us-east-1.amazonaws.com/prod/'
