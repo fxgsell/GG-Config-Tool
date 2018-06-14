@@ -28,9 +28,9 @@ if [ $DEPENDENCIES -ne 1 ]; then
         echo "" >> /etc/sudoers
         echo "Defaults timestamp_timeout=-1" >> /etc/sudoers
     fi
-  echo "Intalling dependencies"
-  cd scripts/tx2-setup-script/
-  sudo -H -u nvidia ./install.sh
+    echo "Intalling dependencies"
+    cd scripts/tx2-setup-script/
+    sudo -H -u nvidia ./install.sh || (>&2 echo "Unable to install dependencies") ; exit 1
 fi
 
 echo "Cleaning existing installation"
