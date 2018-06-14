@@ -33,6 +33,10 @@ if [ $DEPENDENCIES -ne 1 ]; then
     sudo -H -u nvidia ./install.sh || (>&2 echo "Unable to install dependencies") ; exit 1
 fi
 
+echo "Creating ML folder for Greengrass"
+sudo mkdir /ml
+chown -R ggc_user:ggc_group /ml
+
 echo "Cleaning existing installation"
 rm -rf /opt/gg-config-ui/
 
